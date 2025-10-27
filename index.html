@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Our Wedding – 12–15 June 2026</title>
+
+  <style>
+    :root {
+      --bg-page: #f8f8f6;
+      --bg-card: #ffffff;
+      --text-main: #1a1a1a;
+      --text-muted: #555;
+      --accent: #b89a4f; /* soft gold */
+      --radius-lg: 1.5rem;
+      --radius-sm: .5rem;
+      --max-w: 1200px;
+      --font-stack: ui-serif, Georgia, "Times New Roman", Times, serif;
+      --font-body: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+                   Roboto, "Helvetica Neue", Arial, sans-serif;
+    }
+
+    * {
+      box-sizing: border-box;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    body {
+      margin: 0;
+      background-color: var(--bg-page);
+      color: var(--text-main);
+      font-family: var(--font-body);
+      line-height: 1.55;
+      scroll-behavior: smooth;
+    }
+
+    header.hero {
+      position: relative;
+      color: #fff;
+      min-height: 70vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 4rem 1.5rem;
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-image:
+        linear-gradient(
+          rgba(0,0,0,0.4),
+          rgba(0,0,0,0.55)
+        ),
+        url("hero.jpg"); /* replace with your villa / couple photo */
+    }
+
+    .hero-inner {
+      max-width: 40rem;
+    }
+
+    .hero-date {
+      font-family: var(--font-stack);
+      font-size: 0.95rem;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      color: #fff;
+      opacity: .9;
+    }
+
+    .hero-names {
+      font-family: var(--font-stack);
+      font-size: clamp(2.2rem, 2vw + 1.5rem, 3rem);
+      font-weight: 500;
+      margin: .5rem 0 1rem 0;
+      line-height: 1.2;
+      color: #fff;
+    }
+
+    .hero-location {
+      font-size: 1rem;
+      color: #fff;
+      opacity: .9;
+    }
+
+    nav.site-nav {
+      position: sticky;
+      top: 0;
+      z-index: 999;
+      background-color: rgba(248,248,246,0.8);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid rgba(0,0,0,0.05);
+    }
+
+    .nav-inner {
+      max-width: var(--max-w);
+      margin: 0 auto;
+      padding: .75rem 1rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      justify-content: center;
+      font-size: .9rem;
+    }
+
+    .nav-inner a {
+      color: var(--text-main);
+      text-decoration: none;
+      font-weight: 500;
+      padding: .4rem .8rem;
+      border-radius: var(--radius-sm);
+      background-color: rgba(255,255,255,0.6);
+      border: 1px solid rgba(0,0,0,0.05);
+    }
+
+    .nav-inner a:hover,
+    .nav-inner a:focus {
+      outline: none;
+      background-color: var(--bg-card);
+      box-shadow: 0 6px 16px rgba(0,0,0,0.07);
+    }
+
+    main {
+      max-width: var(--max-w);
+      margin: 0 auto;
+      padding: 3rem 1rem 6rem 1rem;
+      display: grid;
+      gap: 3rem;
+    }
+
+    section {
+      background-color: var(--bg-card);
+      border-radius: var(--radius-lg);
+      padding: 2rem 1.5rem 2.5rem 1.5rem;
+      box-shadow: 0 24px 48px rgba(0,0,0,0.06);
+      border: 1px solid rgba(0,0,0,0.04);
+    }
+
+    section header.sec-head {
+      margin-bottom: 1.5rem;
+    }
+
+    section header.sec-head h2 {
+      margin: 0 0 .25rem 0;
+      font-family: var(--font-stack);
+      font-size: 1.4rem;
+      font-weight: 500;
+      line-height: 1.3;
+      color: var(--text-main);
+      display: inline-block;
+      position: relative;
+    }
+
+    section header.sec-head h2::after {
+      content: "";
+      display: block;
+      width: 2.5rem;
+      height: 2px;
+      background-color: var(--accent);
+      margin-top: .5rem;
+      border-radius: 999px;
+    }
+
+    section header.sec-head p {
+      margin: 0;
+      font-size: .95rem;
+      color: var(--text-muted);
+      max-width: 40rem;
+      line-height: 1.5;
+    }
+
+    /* details grid */
+    .details-grid {
+      display: grid;
+      gap: 1.5rem;
+    }
+
+    @media (min-width: 700px) {
+      .details-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+
+    .detail-card {
+      background-color: var(--bg-page);
+      border-radius: var(--radius-sm);
+      padding: 1rem 1rem 1.25rem;
+      border: 1px solid rgba(0,0,0,0.05);
+    }
+
+    .detail-label {
+      font-size: .75rem;
+      font-weight: 600;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: .5rem;
+      font-family: var(--font-body);
+    }
+
+    .detail-main {
+      font-size: 1rem;
+      line-height: 1.4;
+      color: var(--text-main);
+      font-family: var(--font-stack);
+    }
+
+    /* schedule list */
+    .timeline {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      border-left: 2px solid var(--accent);
+    }
+
+    .timeline li {
+      position: relative;
+      padding: 1rem 1rem 1rem 1.5rem;
+    }
+
+    .timeline li::before {
+      content: "";
+      position: absolute;
+      left: -7px;
+      top: 1.2rem;
+      width: 12px;
+      height: 12px;
+      background-color: var(--accent);
+      border-radius: 999px;
+      box-shadow: 0 0 0 4px var(--bg-card);
+    }
+
+    .time-label {
+      font-weight: 600;
+      font-size: .9rem;
+      color: var(--text-main);
+      font-family: var(--font-body);
+    }
+
+    .time-desc {
+      font-size: .95rem;
+      color: var(--text-muted);
+      line-height: 1.4;
+    }
+
+    /* faq grid */
+    .faq-grid {
+      display: grid;
+      gap: 1.5rem;
+    }
+    @media (min-width: 700px) {
+      .faq-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+    .faq-item h3 {
+      margin: 0 0 .5rem 0;
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--text-main);
+      font-family: var(--font-stack);
+      line-height: 1.4;
+    }
+    .faq-item p {
+      margin: 0;
+      font-size: .95rem;
+      color: var(--text-muted);
+      line-height: 1.5;
+    }
+
+    /* rsvp block */
+    .rsvp-box {
+      background-color: var(--bg-page);
+      border-radius: var(--radius-sm);
+      padding: 1rem;
+      border: 1px solid rgba(0,0,0,0.05);
+    }
+
+    .rsvp-intro {
+      font-size: .95rem;
+      line-height: 1.5;
+      color: var(--text-muted);
+      margin-bottom: 1rem;
+    }
+
+    .form-frame-wrapper {
+      width: 100%;
+      border: 0;
+      overflow: hidden;
+      border-radius: var(--radius-sm);
+      background-color: #fff;
+      box-shadow: 0 16px 32px rgba(0,0,0,0.07);
+      border: 1px solid rgba(0,0,0,0.05);
+    }
+
+    .form-frame-wrapper iframe {
+      width: 100%;
+      min-height: 600px;
+      border: 0;
+    }
+
+    footer.site-footer {
+      text-align: center;
+      font-size: .8rem;
+      color: var(--text-muted);
+      padding: 3rem 1rem 4rem;
+    }
+
+    footer .tiny-accent {
+      color: var(--accent);
+      font-weight: 500;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HERO / TOP SECTION -->
+  <header class="hero" role="img" aria-label="Photo of the villa / venue">
+    <div class="hero-inner">
+      <div class="hero-date">12–15 June 2026 • Sitges, Spain</div>
+      <div class="hero-names">Alex & Jamie are getting married</div>
+      <div class="hero-location">Villa Almanita</div>
+    </div>
+  </header>
+
+  <!-- STICKY NAV -->
+  <nav class="site-nav" aria-label="Main">
+    <div class="nav-inner">
+      <a href="#details">Details</a>
+      <a href="#schedule">Schedule</a>
+      <a href="#faq">FAQ</a>
+      <a href="#rsvp">RSVP</a>
+    </div>
+  </nav>
+
+  <main>
+    <!-- DETAILS -->
+    <section id="details">
+      <header class="sec-head">
+        <h2>Key details</h2>
+        <p>
+          Everything important in one place: where to be, where you’re sleeping,
+          and how food works across the three days.
+        </p>
+      </header>
+
+      <div class="details-grid">
+        <div class="detail-card">
+          <div class="detail-label">Dates</div>
+          <div class="detail-main">
+            Friday 12 June – Monday 15 June 2026
+          </div>
+        </div>
+
+        <div class="detail-card">
+          <div class="detail-label">Address</div>
+          <div class="detail-main">
+            Villa Almanita, Sitges<br />
+            (Full address & map link will be emailed after RSVP)
+          </div>
+        </div>
+
+        <div class="detail-card">
+          <div class="detail-label">Accommodation</div>
+          <div class="detail-main">
+            We’ve rented the whole villa. Most guests will have a room on-site.
+            The cost is split between us all at £___ per person for all 3 nights.
+            We’ll confirm your room once you RSVP.
+          </div>
+        </div>
+
+        <div class="detail-card">
+          <div class="detail-label">Food & Drink</div>
+          <div class="detail-main">
+            We’re arranging catering for the weekend, including vegan options.
+            Please tell us any allergies and preferred main for the wedding meal.
+          </div>
+        </div>
+
+        <div class="detail-card">
+          <div class="detail-label">Travel</div>
+          <div class="detail-main">
+            Closest airport: Barcelona (BCN). There’s a direct train / taxi to
+            Sitges. We’ll help coordinate arrivals and lifts from the airport.
+          </div>
+        </div>
+
+        <div class="detail-card">
+          <div class="detail-label">Dress code</div>
+          <div class="detail-main">
+            Ceremony & dinner: summer formal (feel good, not businessy).
+            Pool / villa: comfy & warm-weather chilled.
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SCHEDULE -->
+    <section id="schedule">
+      <header class="sec-head">
+        <h2>Weekend schedule</h2>
+        <p>
+          Timings are gentle on purpose. This is meant to feel like one long,
+          happy hang-out rather than a military exercise.
+        </p>
+      </header>
+
+      <ul class="timeline" aria-label="Schedule timeline">
+        <li>
+          <div class="time-label">Friday 12 June – Arrival</div>
+          <div class="time-desc">
+            Check in from 15:00. Welcome food + drinks at the villa in the evening.
+          </div>
+        </li>
+        <li>
+          <div class="time-label">Saturday 13 June – Ceremony / Dinner</div>
+          <div class="time-desc">
+            Ceremony in the late afternoon, followed by dinner, music,
+            swimming, being extremely gorgeous together.
+          </div>
+        </li>
+        <li>
+          <div class="time-label">Sunday 14 June – Pool & Recovery</div>
+          <div class="time-desc">
+            Slow breakfast, pool, sun, hanging out. Optional wander into Sitges.
+            Casual dinner at the villa.
+          </div>
+        </li>
+        <li>
+          <div class="time-label">Monday 15 June – Depart</div>
+          <div class="time-desc">
+            Check out late morning, group hugs, then airport runs.
+          </div>
+        </li>
+      </ul>
+    </section>
+
+    <!-- FAQ -->
+    <section id="faq">
+      <header class="sec-head">
+        <h2>FAQ</h2>
+        <p>
+          Logistics, money, and the stuff people are too polite to ask out loud.
+        </p>
+      </header>
+
+      <div class="faq-grid">
+        <div class="faq-item">
+          <h3>How do we pay for the room?</h3>
+          <p>
+            The villa is already booked for everyone. We’re just splitting the cost.
+            After you RSVP we’ll send bank details. Please don’t stress – we’re
+            keeping it as affordable as we can.
+          </p>
+        </div>
+
+        <div class="faq-item">
+          <h3>Can I bring my partner / kids?</h3>
+          <p>
+            Let us know in the RSVP form. Space is slightly limited in the villa
+            so we just need to plan beds sensibly.
+          </p>
+        </div>
+
+        <div class="faq-item">
+          <h3>I have dietary requirements</h3>
+          <p>
+            Please list them in the RSVP form (allergies, intolerances,
+            vegan/vegetarian preference). The caterer will cook around you,
+            not the other way round.
+          </p>
+        </div>
+
+        <div class="faq-item">
+          <h3>What about travel from the airport?</h3>
+          <p>
+            Tell us your landing time in the form. We’ll group arrivals so
+            people can share taxis or lifts instead of doing it solo.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- RSVP -->
+    <section id="rsvp">
+      <header class="sec-head">
+        <h2>RSVP & meal choice</h2>
+        <p>
+          Please reply by 1 March 2026 so we can lock in rooms, food, and transport.
+          This includes your attendance, who’s in your room, and your meal pick.
+        </p>
+      </header>
+
+      <div class="rsvp-box">
+        <div class="rsvp-intro">
+          The form below comes straight to us. Your info won’t be public.
+        </div>
+
+        <div class="form-frame-wrapper">
+          <!-- Replace the iframe below with the "Embed" code from your Google Form -->
+          <iframe
+            src="https://docs.google.com/forms/d/e/EXAMPLE-FORM-ID/viewform?embedded=true"
+            title="Wedding RSVP form"
+            loading="lazy"
+          >
+          Loading…
+          </iframe>
+        </div>
+
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div>
+      Made with love, sunscreen, and mild chaos.
+      <span class="tiny-accent">See you in Spain.</span>
+    </div>
+  </footer>
+
+</body>
+</html>
